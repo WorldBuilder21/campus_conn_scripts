@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+// App.jsx
+import { Routes, Route } from 'react-router-dom'; // Remove BrowserRouter import
+import Home from './view/home';
+import NotFound from './view/page_not_found';
+import ForgotPassword from './view/forgot_password';
+import VerifyEmail from './view/verify_email';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/verify-email" element={<VerifyEmail />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
